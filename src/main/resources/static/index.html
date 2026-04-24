@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<h1 style="text-align:center;">Admin Dashboard</h1>
+
+<div class="container">
+
+    <!-- PRODUCTS -->
+    <h2>Products</h2>
+    <table class="products">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price (₹)</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="p : ${products}">
+                <td th:text="${p.id}"></td>
+                <td th:text="${p.name}"></td>
+                <td th:text="${p.category}"></td>
+                <td th:text="${p.price}"></td>
+                <td th:text="${p.quantity}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- CUSTOMERS -->
+    <h2>Customers</h2>
+    <table class="customers">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="c : ${customers}">
+                <td th:text="${c.id}"></td>
+                <td th:text="${c.name}"></td>
+                <td th:text="${c.phone}"></td>
+                <td th:text="${c.address}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- SUPPLIERS -->
+    <h2>Suppliers</h2>
+    <table class="suppliers">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="s : ${suppliers}">
+                <td th:text="${s.id}"></td>
+                <td th:text="${s.name}"></td>
+                <td th:text="${s.email}"></td>
+                <td th:text="${s.phone}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ORDERS -->
+    <h2>Orders</h2>
+    <table class="orders">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Status</th>
+                <th>Total (₹)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="o : ${orders}">
+                <td th:text="${o.id}"></td>
+                <td th:text="${o.customer.name}"></td>
+                <td th:text="${o.status}"></td>
+                <td th:text="${o.totalAmount}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div style="text-align:center; margin:20px;">
+    <a href="/logout" style="color:red; font-weight:bold;">Logout</a>
+</div>
+
+</body>
+</html>

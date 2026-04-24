@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+    <h1>Admin Dashboard</h1>
+
+    <div class="cards">
+
+        <a href="/admin/products" class="card blue">
+            <h3>Products</h3>
+            <p th:text="${productCount}">0</p>
+        </a>
+
+        <a href="/admin/orders" class="card green">
+            <h3>Orders</h3>
+            <p th:text="${orderCount}">0</p>
+        </a>
+
+        <a href="/admin/customers" class="card orange">
+            <h3>Customers</h3>
+            <p th:text="${customerCount}">0</p>
+        </a>
+
+        <a href="/admin/suppliers" class="card purple">
+            <h3>Suppliers</h3>
+            <p th:text="${supplierCount}">0</p>
+        </a>
+
+    </div>
+
+    <div class="logout">
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+</body>
+</html>

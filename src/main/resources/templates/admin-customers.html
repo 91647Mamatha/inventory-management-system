@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Customers</title>
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Customer Management</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="c : ${customers}">
+            <td th:text="${c.customerId}"></td>
+            <td th:text="${c.customerName}"></td>
+            <td th:text="${c.phone}"></td>
+            <td th:text="${c.address}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/admin/dashboard" class="back">← Back to Dashboard</a>
+</div>
+
+</body>
+</html>

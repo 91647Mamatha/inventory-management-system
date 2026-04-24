@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Orders</title>
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Order Management</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="o : ${orders}">
+            <td th:text="${o.orderId}"></td>
+            <td th:text="${o.customer.customerName}"></td>
+            <td th:text="${o.orderDate}"></td>
+            <td th:text="${o.totalAmount}"></td>
+            <td th:text="${o.status}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/admin/dashboard" class="back">← Back to Dashboard</a>
+</div>
+
+</body>
+</html>

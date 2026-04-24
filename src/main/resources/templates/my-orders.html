@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Orders</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <span class="navbar-brand">My Orders</span>
+        <a class="btn btn-outline-light btn-sm" href="/products">Back to Products</a>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h4>Your Orders</h4>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th><th>Time</th><th>Total</th><th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="o : ${orders}">
+            <td th:text="${o.id}">1</td>
+            <td th:text="${o.orderTime}">time</td>
+            <td th:text="${o.totalAmount}">0.00</td>
+            <td th:text="${o.status}">NEW</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

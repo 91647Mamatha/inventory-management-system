@@ -1,0 +1,96 @@
+body {
+    background: #f5f7fa;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+}
+
+/* NAVBAR */
+.navbar-brand {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* CARDS */
+.card {
+    border-radius: 12px;
+    transition: transform .2s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+/* BUTTON */
+.btn-primary {
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* SECTION HEADINGS */
+h2 {
+    text-align: center;
+    margin-top: 30px;
+    color: #333;
+}
+
+/* TABLE STYLING (MAIN FIX 🔥) */
+table {
+    width: 95%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* HEADER */
+thead {
+    background-color: #3498db;
+    color: white;
+}
+
+th {
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* BODY */
+td {
+    padding: 12px;
+    text-align: center;
+}
+
+/* ROW DESIGN */
+tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* DIFFERENT COLORS FOR EACH TABLE (OPTIONAL BUT NICE) */
+.products thead {
+    background-color: #2980b9;
+}
+
+.customers thead {
+    background-color: #27ae60;
+}
+
+.suppliers thead {
+    background-color: #8e44ad;
+}
+
+.orders thead {
+    background-color: #e67e22;
+}
+
+/* CONTAINER (OPTIONAL CENTER ALIGN) */
+.container {
+    width: 95%;
+    margin: auto;
+}

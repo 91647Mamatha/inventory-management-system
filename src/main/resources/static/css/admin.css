@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* DASHBOARD */
+.dashboard {
+    padding: 30px;
+    text-align: center;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    padding: 30px;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 22px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.card p {
+    font-size: 36px;
+    margin: 10px 0 0;
+}
+
+.blue { background: #3498db; }
+.green { background: #2ecc71; }
+.orange { background: #e67e22; }
+.purple { background: #9b59b6; }
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* CONTAINER */
+.container {
+    padding: 30px;
+}
+
+/* HEADINGS */
+h2 {
+    text-align: center;
+    margin-top: 30px;
+    color: #333;
+}
+
+/* 🔥 TABLE (UPGRADED CLEAN UI) */
+table {
+    width: 95%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* HEADER */
+table thead {
+    background: #3498db;
+    color: white;
+}
+
+table th {
+    padding: 14px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* BODY */
+table td {
+    padding: 12px;
+    text-align: center;
+}
+
+/* ROWS */
+table tbody tr {
+    border-bottom: 1px solid #eee;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* 🎨 DIFFERENT COLORS FOR EACH SECTION */
+.products thead { background: #2980b9; }
+.customers thead { background: #27ae60; }
+.suppliers thead { background: #8e44ad; }
+.orders thead { background: #e67e22; }
+
+/* LINKS */
+.back {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #2980b9;
+}
+
+/* LOGOUT */
+.logout a {
+    display: inline-block;
+    margin-top: 30px;
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+}

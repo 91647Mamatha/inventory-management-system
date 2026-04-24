@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+
+    <style>
+        body {
+            font-family: Poppins, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #0d6efd;
+            padding: 14px 30px;
+            display: flex;
+            justify-content: space-between;
+            color: white;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        .container {
+            width: 85%;
+            margin: 25px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        table th {
+            background: #0d6efd;
+            color: white;
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .btn-remove {
+            background: #dc3545;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .btn-checkout {
+            background: #198754;
+            padding: 12px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            float: right;
+        }
+
+        .no-items {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div>Order Management</div>
+    <div>
+        <a href="/products">Products</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <h2>Your Cart</h2>
+
+    <div th:if="${#lists.isEmpty(cartItems)}" class="no-items">
+        Your cart is empty.
+    </div>
+
+    <table th:if="${!#lists.isEmpty(cartItems)}">
+        <thead>
+        <tr>
+            <th>Item</th>
+            <th>Name</th>
+            <th>Price (₹)</th>
+            <th>Qty</th>
+            <th>Subtotal</th>
+            <th>Remove</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="c : ${cartItems}">
+            <td><img th:src="@{'/images/' + ${c.imageName}}"></td>
+            <td th:text="${c.name}"></td>
+            <td th:text="${c.price}"></td>
+
+            <td>
+                <form th:action="@{'/cart/update/' + ${c.productId}}" method="post">
+                    <input type="number" name="qty" min="1" th:value="${c.quantity}" style="width:55px;">
+                    <button type="submit">Update</button>
+                </form>
+            </td>
+
+            <td th:text="${c.subtotal}"></td>
+
+            <td>
+                <a class="btn-remove" th:href="@{'/cart/remove/' + ${c.productId}}">X</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3 th:if="${!#lists.isEmpty(cartItems)}">Total: ₹ <span th:text="${total}"></span></h3>
+
+    <a th:if="${!#lists.isEmpty(cartItems)}" class="btn-checkout" href="/checkout">Proceed to Checkout</a>
+
+</div>
+
+</body>
+</html>

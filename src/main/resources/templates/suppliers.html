@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Supplier Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 30px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        form input {
+            flex: 1;
+            padding: 8px;
+        }
+
+        form button {
+            padding: 8px 15px;
+            background: #2c7be5;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #f1f1f1;
+        }
+
+        a.delete {
+            color: red;
+            text-decoration: none;
+        }
+
+        .back {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Supplier Management</h2>
+
+    <!-- Add Supplier Form -->
+    <form action="/admin/suppliers/add" method="post">
+        <input type="text" name="supplierName" placeholder="Supplier Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="phone" placeholder="Phone" required>
+        <button type="submit">Add Supplier</button>
+    </form>
+
+    <!-- Supplier Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="s : ${suppliers}">
+                <td th:text="${s.supplierId}"></td>
+                <td th:text="${s.supplierName}"></td>
+                <td th:text="${s.email}"></td>
+                <td th:text="${s.phone}"></td>
+                <td>
+                    <a th:href="@{/admin/suppliers/delete/{id}(id=${s.supplierId})}"
+                       class="delete"
+                       onclick="return confirm('Delete this supplier?')">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+
+            <tr th:if="${#lists.isEmpty(suppliers)}">
+                <td colspan="5">No suppliers added yet</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="back">
+        <a href="/admin/dashboard">⬅ Back to Admin Dashboard</a>
+    </div>
+
+</div>
+
+</body>
+</html>

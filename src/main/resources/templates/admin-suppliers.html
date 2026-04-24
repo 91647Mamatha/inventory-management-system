@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Suppliers</title>
+</head>
+<body>
+
+<h2>Supplier Management</h2>
+
+<form action="/admin/suppliers/save" method="post">
+    <input type="text" name="supplierName" placeholder="Name" required>
+    <input type="text" name="email" placeholder="Email" required>
+    <input type="text" name="phone" placeholder="Phone" required>
+    <button type="submit">Add</button>
+</form>
+
+<br>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+
+    <tr th:each="s : ${suppliers}">
+        <td th:text="${s.supplierId}"></td>
+        <td th:text="${s.supplierName}"></td>
+        <td th:text="${s.email}"></td>
+        <td th:text="${s.phone}"></td>
+    </tr>
+</table>
+
+<br>
+
+<a href="/admin/dashboard">Back</a>
+
+</body>
+</html>
